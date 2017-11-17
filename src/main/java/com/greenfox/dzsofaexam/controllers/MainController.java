@@ -22,7 +22,7 @@ public class MainController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam(value = "police", required = false) Boolean police, @RequestParam(value = "diplomat", required = false) Boolean diplomat, @RequestParam(value = "search", required = false) String search, Model model) {
+    public String search(@RequestParam(value = "police", required = false) Boolean police, @RequestParam(value = "diplomat", required = false) Boolean diplomat, @RequestParam(value = "q", required = false) String q, Model model) {
         if (diplomat) {
             carService.getDiplomat();
         }

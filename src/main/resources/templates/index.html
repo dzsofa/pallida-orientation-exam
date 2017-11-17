@@ -24,7 +24,7 @@
     </tr>
     <tr th:each="car : ${carList}">
         <td th:text="${car.getPlate()}"></td>
-        <td><a th:href="@{/search/{brand}(brand=${car.getCar_brand()})}" th:text="${car.getCar_brand()}"></a></td>
+        <td><a th:href="@{/search/{brand}(brand=${car.car_brand})}" th:text="${car.getCar_brand()}"></a></td>
         <td th:text="${car.getColor()}"></td>
         <td th:text="${car.getYear()}"></td>
     </tr>
