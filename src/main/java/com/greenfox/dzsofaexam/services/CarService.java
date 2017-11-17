@@ -1,9 +1,11 @@
-package service;
+package com.greenfox.dzsofaexam.services;
 
-import model.Car;
+import com.greenfox.dzsofaexam.models.Car;
+import com.greenfox.dzsofaexam.repositories.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import repository.CarRepository;
+
+import java.util.List;
 
 @Component
 public class CarService {
@@ -13,5 +15,13 @@ public class CarService {
 
     public Iterable<Car> getAllCars() {
         return carRepository.findAll();
+    }
+
+    public List<Car> getPolice() {
+        return carRepository.fincPoliceCars();
+    }
+
+    public List<Car> getDiplomat() {
+        return carRepository.findDiplomatcars();
     }
 }

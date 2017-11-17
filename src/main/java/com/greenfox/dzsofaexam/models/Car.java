@@ -1,6 +1,14 @@
-package model;
+package com.greenfox.dzsofaexam.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "licence_plates")
 public class Car {
+
+    @Id
     private String plate;
     private String car_brand;
     private String car_model;

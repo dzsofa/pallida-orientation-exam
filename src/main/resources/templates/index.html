@@ -12,8 +12,8 @@
     </div>
     <button type="submit" class="btn btn-default">Search</button>
 </form>
-
-plate, car_brand, car_model, color, year
+<p><a th:href="@{/todo/list?isPolice=true}"> Show Police Cars</a></p>
+<p><a th:href="@{/todo/list?isDiplomat=true}">Show Diplomat Cars</a></p>
 <table>
         <tr>
             <th>PLATE</th>
@@ -28,7 +28,6 @@ plate, car_brand, car_model, color, year
             <td th:text="${car.getCar_color()}"></td>
             <td th:text="${car.getYear()}"></td>
         </tr>
-
 </table>
 
 </body>
