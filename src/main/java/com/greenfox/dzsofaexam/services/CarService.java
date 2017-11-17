@@ -18,10 +18,14 @@ public class CarService {
     }
 
     public List<Car> getPolice() {
-        return carRepository.fincPoliceCars();
+        return carRepository.getPolice();
     }
 
     public List<Car> getDiplomat() {
-        return carRepository.findDiplomatcars();
+        return carRepository.getDiplomat();
+    }
+
+    public List<Car> getCarsByBrand(String brand) {
+        return carRepository.getByBrand(brand);
     }
 }

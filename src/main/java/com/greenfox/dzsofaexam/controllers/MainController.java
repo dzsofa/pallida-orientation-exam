@@ -1,7 +1,6 @@
 package com.greenfox.dzsofaexam.controllers;
 
 import com.greenfox.dzsofaexam.services.CarService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,19 +17,24 @@ public class MainController {
 
     @GetMapping({"/", ""})
     public String getList(Model model) {
-        model.addAttribute("carlist", carService.getAllCars());
+        model.addAttribute("carList", carService.getAllCars());
         return "index";
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam(value = "isPolice", required = false) Boolean police, @RequestParam(value = "isDiplomat", required = false) Boolean diplomat, @RequestParam(value = "search", required = false) String search, Model model) {
-        model.addAttribute("diplomat", carService.getDiplomat());
-        model.addAttribute("police", carService.getPolice());
-return "index";
+    public String search(@RequestParam(value = "police", required = false) Boolean police, @RequestParam(value = "diplomat", required = false) Boolean diplomat, @RequestParam(value = "search", required = false) String search, Model model) {
+        if (diplomat) {
+            carService.getDiplomat();
+        }
+        if (police) {
+            carService.getPolice();
+        }
+        return "index";
     }
 
     @GetMapping("/search/{brand}")
-    public String searchByBrand(@PathVariable String brand) {
+    public String searchByBrand(@PathVariable String brand, Model model) {
+        carService.getCarsByBrand(brand);
         return "index";
     }
 }
